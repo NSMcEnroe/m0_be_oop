@@ -56,12 +56,13 @@ class Dragon
         @name = name
         @rider = rider
         @color = color
-        @is_hungry = false
+        @is_hungry = 4
     end
 
     def eat 
         @is_hungry = false
     end
+
 end
 
 dragon1 = Dragon.new("Henry", "Corey", "Red")
@@ -79,3 +80,21 @@ p dragon1
 #  it should have an is_old attribute that defaults to false. once a Hobbit is 101, it is old.
 #  it should have a has_ring attribute. If the Hobbit's name is "Frodo", true, if not, false.
 
+class Hobbit
+    attr_reader :name, :disposition, :age
+    def initialize(name,disposition,age = 0)
+        @name = name
+        @disposition = disposition
+        @age = age
+        @is_adult = false
+        
+    end
+    def celebrate_birthday
+        @age = age + 1
+    end
+end
+
+hobbit1 = Hobbit.new("Ralph", "Chipper")
+hobbit1.celebrate_birthday
+hobbit1.celebrate_birthday
+p hobbit1
