@@ -56,13 +56,18 @@ class Dragon
         @name = name
         @rider = rider
         @color = color
-        @is_hungry = true
+        @is_hungry = is_hungry?
     end
 
     def eat 
         stomach = 4
-        return stomach - 1 
-        if stomach <= 0
+        @stomach = stomach - 1 
+    end
+
+    def is_hungry?
+        if @stomach <= 0
+            @is_hungry = true
+        else
             @is_hungry = false
         end
     end
@@ -71,13 +76,9 @@ end
 
 dragon1 = Dragon.new("Henry", "Corey", "Red")
 
-puts dragon1.eat
-
 p dragon1
 
-puts dragon1.eat
-puts dragon1.eat
-puts dragon1.eat
+4.times {dragon1.eat}
 
 p dragon1
 
@@ -104,7 +105,7 @@ class Hobbit
     end
     def celebrate_birthday
         @age = age + 1
-        if age >= 33giy
+        if age >= 33
             @is_adult = true
         end
 
