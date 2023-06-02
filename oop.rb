@@ -56,16 +56,23 @@ class Dragon
         @name = name
         @rider = rider
         @color = color
-        @is_hungry = 4
+        @is_hungry = true
     end
 
     def eat 
-        @is_hungry = false
+        stomach = ["A", "B", "C", "D"]
+        return stomach.pop
+        if stomach.empty? == true
+            @is_hungry = false
+        end
     end
 
 end
 
 dragon1 = Dragon.new("Henry", "Corey", "Red")
+p dragon1.eat
+p dragon1.eat
+p dragon1.eat
 p dragon1.eat
 p dragon1
 
