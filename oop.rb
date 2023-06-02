@@ -60,9 +60,9 @@ class Dragon
     end
 
     def eat 
-        stomach = ["A", "B", "C", "D"]
-        return stomach.pop
-        if stomach.empty? == true
+        stomach = 4
+        return stomach - 1 
+        if stomach <= 0
             @is_hungry = false
         end
     end
@@ -81,6 +81,7 @@ puts dragon1.eat
 
 p dragon1
 
+#I still can not figure out how to call on this methods multiple times to recieve a different result.  I tried creating an array of the stomach and having the eat method activate stomach.pop.  When the array was empty, it was suppossed to switch the Boolean value of is_hungry.  However, it only eliminated d each time; it doesn't modify the array to remove the next element.  I also tried an if then conditional with some integer manipulation, but I couldn't figure how to connect the integers to the boolearn statement. 
 
 #  Write a Hobbit class
 #  it should have a dynamic name attribute (string)
@@ -91,24 +92,26 @@ p dragon1
 #  it should have an is_old attribute that defaults to false. once a Hobbit is 101, it is old.
 #  it should have a has_ring attribute. If the Hobbit's name is "Frodo", true, if not, false.
 
-# class Hobbit
-#     attr_reader :name, :disposition, :age
-#     def initialize(name,disposition,age = 0)
-#         @name = name
-#         @disposition = disposition
-#         @age = age
-#         @is_adult = false
+class Hobbit
+    attr_reader :name, :disposition, :age
+    def initialize(name,disposition,age = 0)
+        @name = name
+        @disposition = disposition
+        @age = age
+        @is_adult = false
         
-#     end
-#     def celebrate_birthday
-#         @age = age + 1
-#         if age >= 33
-#             @is_adult = true
-#         end
-#     end
-# end
+    end
+    def celebrate_birthday
+        @age = age + 1
+        if age >= 33
+            @is_adult = true
+        end
+    end
+end
 
-# hobbit1 = Hobbit.new("Ralph", "Chipper")
-# 35.times.hobbit1.celebrate_birthday
+hobbit1 = Hobbit.new("Ralph", "Chipper")
+35.times.hobbit1.celebrate_birthday
 
-# p hobbit1
+p hobbit1
+
+#I tried playing around with this, but it's the same problem as before.  I can't figure out how to call upon a method multiple times with a different result.  This one seems more obvious to me I have to use an if-else conditional, but I can't seem to be able to store the new values to modify them :(
